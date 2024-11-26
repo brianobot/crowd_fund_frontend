@@ -70,9 +70,10 @@ export const Campaign: FC = () => {
         try {
             const anchorProvider = getProvider(); 
             const program = new Program<CrowdFund>(idl_object, anchorProvider)
-
+            
             await program.methods.donateToCampaign(new BN(0.1 * web3.LAMPORTS_PER_SOL))
                 .accounts({
+                    // @ts-ignore
                     campaignPda: publicKey,
                     updateAuthority: anchorProvider.publicKey,
                     signer: anchorProvider.publicKey,
@@ -96,6 +97,7 @@ export const Campaign: FC = () => {
 
             await program.methods.withdrawFromCampaign(new BN(0.1 * web3.LAMPORTS_PER_SOL))
                 .accounts({
+                    // @ts-ignore
                     campaignPda: publicKey,
                     updateAuthority: anchorProvider.publicKey,
                 }).rpc();
@@ -112,6 +114,7 @@ export const Campaign: FC = () => {
 
             await program.methods.closeCampaign()
                 .accounts({
+                    // @ts-ignore
                     campaignPda: publicKey,
                     updateAuthority: anchorProvider.publicKey,
                 }).rpc();
@@ -156,7 +159,6 @@ export const Campaign: FC = () => {
             console.error('Error fetching rent exemption fee:', error);
         }
     }
-
 
     return (
         <div>
