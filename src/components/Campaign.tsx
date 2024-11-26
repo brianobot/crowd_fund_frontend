@@ -171,6 +171,7 @@ export const Campaign: FC = () => {
                     return (
                         <div
                             className="flex flex-col"
+                            key={ campaign.pubkey }
                             style={{
                                 border: "1px solid #ccc",
                                 borderRadius: "10px",
@@ -200,8 +201,8 @@ export const Campaign: FC = () => {
                                 <div style={{ display: "flex", gap: "5px" }}>
                                     <input
                                         type="text"
-                                        value={ 1 }
-                                        // onChange={handleDonateAmountChange}
+                                        // value={ 1 }
+                                        // onChange={ console.log("Default Donation Amount Changed") }
                                         placeholder="Enter donation amount"
                                         style={{
                                         padding: "10px",
