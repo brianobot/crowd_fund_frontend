@@ -398,10 +398,15 @@
   dependencies:
     "@noble/hashes" "1.6.0"
 
-"@noble/ed25519@^1.7.0", "@noble/ed25519@^1.7.1":
+"@noble/ed25519@^1.7.0":
   version "1.7.1"
   resolved "https://registry.npmjs.org/@noble/ed25519/-/ed25519-1.7.1.tgz"
   integrity sha512-Rk4SkJFaXZiznFyC/t77Q0NKS4FL7TLJJsVG2V2oiEq3kJVeTdxysEe/yRWSpnWMe808XRDJ+VFh5pt/FN5plw==
+
+"@noble/ed25519@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@noble/ed25519/-/ed25519-2.1.0.tgz#4bf661de9ee0ad775d41fcacbfc9aeec491f459c"
+  integrity sha512-KM4qTyXPinyCgMzeYJH/UudpdL+paJXtY3CHtHYZQtBkS8MZoPr4rOikZllIutJe0d06QDQKisyn02gxZ8TcQA==
 
 "@noble/hashes@1.2.0", "@noble/hashes@^1.1.2", "@noble/hashes@~1.2.0":
   version "1.2.0"
