@@ -178,7 +178,7 @@ export const Campaign: FC = () => {
 
     useEffect(() => {
         // Set up the interval when the component mounts
-        const intervalId = setInterval(getCampaigns, 5000); // 5000 ms = 5 seconds
+        const intervalId = setInterval(getCampaigns, 2000); // 5000 ms = 5 seconds
     
         // Clean up the interval when the component unmounts
         return () => clearInterval(intervalId);
