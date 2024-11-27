@@ -249,7 +249,7 @@ export const Campaign: FC = () => {
                 </div>
             </div>
             <hr />
-            <h1 className="text-center text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mt-10 mb-8">Active Campaigns</h1>
+            <h2 className="text-center text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mt-10 mb-8">Active Campaigns</h2>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-around" }}>
                 {
                     campaigns.map((campaign) => {
