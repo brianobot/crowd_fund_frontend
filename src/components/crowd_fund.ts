@@ -141,31 +141,7 @@ export type CrowdFund = {
       "accounts": [
         {
           "name": "campaignPda",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  99,
-                  97,
-                  109,
-                  112,
-                  97,
-                  105,
-                  103,
-                  110
-                ]
-              },
-              {
-                "kind": "account",
-                "path": "updateAuthority"
-              }
-            ]
-          }
-        },
-        {
-          "name": "updateAuthority"
+          "writable": true
         },
         {
           "name": "signer",

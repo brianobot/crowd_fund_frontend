@@ -135,31 +135,7 @@
       "accounts": [
         {
           "name": "campaign_pda",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  99,
-                  97,
-                  109,
-                  112,
-                  97,
-                  105,
-                  103,
-                  110
-                ]
-              },
-              {
-                "kind": "account",
-                "path": "update_authority"
-              }
-            ]
-          }
-        },
-        {
-          "name": "update_authority"
+          "writable": true
         },
         {
           "name": "signer",
