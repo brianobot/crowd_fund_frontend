@@ -39,7 +39,7 @@ export const Campaign: FC = () => {
             const anchorProvider = getProvider();
             const program = new Program<CrowdFund>(idl_object, anchorProvider)
 
-            await program.methods.createCampaign(
+            const tx = await program.methods.createCampaign(
                 campaignName, 
                 campaignDescr, 
                 new BN(campaignTargetAmount)
@@ -50,6 +50,7 @@ export const Campaign: FC = () => {
             
             console.log("🎉 Wow, New Campaign was created");
             toast.success("Successfully Created a New Campaign");
+            showOnSolanaToast(`${tx}`)
 
         } catch (error) {
             console.error("Error while creating a campaign: " + error);
@@ -85,7 +86,7 @@ export const Campaign: FC = () => {
             const anchorProvider = getProvider(); 
             const program = new Program<CrowdFund>(idl_object, anchorProvider)
 
-            await program.methods.donateToCampaign(new BN(donationAmount))
+            const tx = await program.methods.donateToCampaign(new BN(donationAmount))
                 .accounts({
                     // @ts-ignore
                     campaignPda: publicKey,
@@ -93,6 +94,7 @@ export const Campaign: FC = () => {
                 }).rpc();
             
             toast.success(`🎉 Successfully Donated ${donationAmount} SOL to Campaign`);
+            showOnSolanaToast(`${tx}`)
 
         } catch (error) {
             console.error("Error while donating to campaign: " + error);
@@ -105,7 +107,7 @@ export const Campaign: FC = () => {
             const anchorProvider = getProvider(); 
             const program = new Program<CrowdFund>(idl_object, anchorProvider)
 
-            await program.methods.withdrawFromCampaign(new BN(withdrawalAmount))
+            const tx = await program.methods.withdrawFromCampaign(new BN(withdrawalAmount))
                 .accounts({
                     // @ts-ignore
                     campaignPda: publicKey,
@@ -113,6 +115,7 @@ export const Campaign: FC = () => {
                 }).rpc();
             
             toast.success(`Successfully Withdrew ${withdrawalAmount} from Campaign`)
+            showOnSolanaToast(`${tx}`)
 
         } catch (error) {
             console.error("Error while withdrawing from campaign: " + error);
@@ -125,7 +128,7 @@ export const Campaign: FC = () => {
             const anchorProvider = getProvider(); 
             const program = new Program<CrowdFund>(idl_object, anchorProvider)
 
-            await program.methods.closeCampaign()
+            const tx = await program.methods.closeCampaign()
                 .accounts({
                     // @ts-ignore
                     campaignPda: publicKey,
@@ -134,6 +137,7 @@ export const Campaign: FC = () => {
             
             console.log("✅ Campaign close successfully");
             toast.success("🎉 Campaign close successfully");
+            showOnSolanaToast(`${tx}`)
 
         } catch (error) {
             console.error("Error while closing campaign: " + error);
@@ -184,6 +188,23 @@ export const Campaign: FC = () => {
         return () => clearInterval(intervalId);
       }, []
     ); // Empty dependency array ensures this runs only once when the component mounts
+
+    const showOnSolanaToast = (transactionSignature) => {
+        const solanaExplorerLink = `https://explorer.solana.com/tx/${transactionSignature}?cluster=devnet`;
+      
+        toast.success(
+          <span>
+            <a
+              href={solanaExplorerLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'black', textDecoration: 'underline' }}
+            >
+              View Transaction on Solana Explorer
+            </a>
+          </span>
+        );
+      };
 
     return (
         <div>
