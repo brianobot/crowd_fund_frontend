@@ -429,10 +429,15 @@
   dependencies:
     "@noble/hashes" "1.6.0"
 
-"@noble/ed25519@^1.7.0", "@noble/ed25519@^1.7.1":
+"@noble/ed25519@^1.7.0":
   version "1.7.1"
   resolved "https://registry.npmjs.org/@noble/ed25519/-/ed25519-1.7.1.tgz"
   integrity sha512-Rk4SkJFaXZiznFyC/t77Q0NKS4FL7TLJJsVG2V2oiEq3kJVeTdxysEe/yRWSpnWMe808XRDJ+VFh5pt/FN5plw==
+
+"@noble/ed25519@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@noble/ed25519/-/ed25519-2.2.1.tgz#b3c4d4489cc5f3a8bcb1453bea9ea83ea3ac5518"
+  integrity sha512-Y5HMPBqnrSxeJmgLgQ6l4GplBJtnYGcM6fG2q2N8VLKSn8YaQ+jZjHiGEbnbr8vw+qvG+hYb3/A/FbWLjmC6gw==
 
 "@noble/hashes@1.2.0", "@noble/hashes@^1.1.2", "@noble/hashes@~1.2.0":
   version "1.2.0"
