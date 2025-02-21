@@ -322,13 +322,13 @@ export const Campaign: FC = () => {
 
                         return (
                             <div
-                                className="flex flex-col my-10 mx-8 border border border-[#ccc] rounded-md p-5 max-w-2xl text-sm"
+                                className="flex flex-col my-10 mx-8 border border border-[#ccc] rounded-md p-5 max-w-xl text-sm"
                                 key={ campaign.pubkey }
                                 style={{
                                     
                                     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
                                     // maxWidth: "300px",
-                                                                        backgroundColor: "##0000FF",
+                                backgroundColor: "##0000FF",
                                     flex: "1 1 30%", // This will make each item take up 30% of the container width
                                     
                                 }}
@@ -348,9 +348,7 @@ export const Campaign: FC = () => {
                                     Amount Donated: {campaign.amountDonated?.toString() || "N/A"} SOL
                                 </p>
                                 </div>
-                                <span>
-                                    Amount Withdrawn: {campaign.amountWithdrawn?.toString() || "N/A"} SOL
-                                </span>
+                              
                                 
                                 <ProgressBar currentAmount={ campaign.amountDonated } targetAmount={ campaign.targetAmount } />
 
