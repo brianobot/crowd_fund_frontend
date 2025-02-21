@@ -22,9 +22,9 @@ export const Campaign: FC = () => {
     const ourWallet = useWallet();
     const {connection} = useConnection();
     const [campaigns, setCampaigns] = useState([]);
-    const [campaignName, setCampaignName]  = useState("Default Campaign Name");
-    const [campaignDescr, setcampaignDescr]  = useState("Default Campaign Description");
-    const [campaignTargetAmount, setcampaignTargetAmount]  = useState(1);
+    const [campaignName, setCampaignName] = useState("Default Campaign Name");
+    const [campaignDescr, setcampaignDescr] = useState("Default Campaign Description");
+    const [campaignTargetAmount, setcampaignTargetAmount] = useState(1);
     const [donationAmount, setDonationAmount] = useState(0);
     const [withdrawalAmount, setWithdrawalAmount] = useState(0);
 
@@ -210,7 +210,7 @@ export const Campaign: FC = () => {
         <div>
             <hr />
             <input type="text" 
-                placeholder="Enter Campaign name"
+                placeholder="Enter Campaign title"
                 value = { campaignName }
                 onChange={ handleCampaignNameChange }
                 style={{
@@ -223,10 +223,25 @@ export const Campaign: FC = () => {
                 marginBottom: "10px",
                 }}
             />
-            <input type="text" 
-                placeholder="Enter Campaign Description"
+            <textarea 
+                placeholder="Enter Campaign description"
                 value = { campaignDescr }
                 onChange={ handleCampaignDescrChange }
+                rows={ 4 }
+                style={{
+                padding: "10px",
+                flex: "7",
+                borderRadius: "5px",
+                border: "1px solid #ccc",
+                width: "100%",
+                color: "black",
+                marginBottom: "10px",
+                }}
+            />
+            <input type="text" 
+                placeholder="Enter Url to Campaign Website/Social Media Page"
+                // value = "url"
+                // onChange={ handleCampaignDescrChange }
                 style={{
                 padding: "10px",
                 flex: "7",
@@ -249,6 +264,35 @@ export const Campaign: FC = () => {
                 width: "100%",
                 color: "black",
                 marginBottom: "10px",
+                }}
+            />
+            <input type="number" 
+                placeholder="Campaign Start Time"
+                // value = { campaignTargetAmount }
+                // onChange={ handleCampaignTargetAmountChange }
+                style={{
+                padding: "10px",
+                flex: "7",
+                borderRadius: "5px",
+                border: "1px solid #ccc",
+                width: "50%",
+                color: "black",
+                marginBottom: "10px",
+                }}
+            />
+            <input type="number" 
+                placeholder="Campaign End Time"
+                // value = { campaignTargetAmount }
+                // onChange={ handleCampaignTargetAmountChange }
+                style={{
+                padding: "10px",
+                flex: "7",
+                borderRadius: "5px",
+                border: "1px solid #ccc",
+                width: "49.5%",
+                color: "black",
+                marginBottom: "10px",
+                marginLeft: "5px",
                 }}
             />
             <div className="flex flex-row justify-center">
@@ -307,7 +351,7 @@ export const Campaign: FC = () => {
                                 <span style={{ marginBottom: "20px", fontSize: "12px" }}>
                                     Amount Withdrawn: {campaign.amountWithdrawn?.toString() || "N/A"} SOL
                                 </span>
-
+                                
                                 <ProgressBar currentAmount={ campaign.amountDonated } targetAmount={ campaign.targetAmount } />
 
                                 <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", gap: "10px", marginTop: "10px"}}>

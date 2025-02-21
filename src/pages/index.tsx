@@ -6,7 +6,7 @@ const Home: NextPage = (props) => {
   return (
     <div>
       <Head>
-        <title>Brian Crowd Funding Dapp</title>
+        <title>Crowdfi Dapp</title>
         <meta
           name="description"
           content="Solana powered crowd funding dapp"
