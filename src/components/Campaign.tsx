@@ -322,16 +322,13 @@ export const Campaign: FC = () => {
 
                         return (
                             <div
-                                className="flex flex-col"
+                                className="flex flex-col my-10 mx-8 border border border-[#ccc] rounded-md p-5 max-w-2xl text-sm"
                                 key={ campaign.pubkey }
                                 style={{
-                                    border: "1px solid #ccc",
-                                    borderRadius: "10px",
-                                    padding: "20px",
+                                    
                                     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                                    maxWidth: "300px",
-                                    margin: "20px 10px",
-                                    backgroundColor: "##0000FF",
+                                    // maxWidth: "300px",
+                                                                        backgroundColor: "##0000FF",
                                     flex: "1 1 30%", // This will make each item take up 30% of the container width
                                     
                                 }}
@@ -339,16 +336,19 @@ export const Campaign: FC = () => {
                                 <h1 style={{ marginBottom: "10px" }}>
                                     <b><u> {campaign.name.toString()} </u></b>
                                 </h1>
-                                <span style={{ marginBottom: "10px", fontSize: "12px" }}>
+                                
+                                <span className='mb-4 text-justify text-sm'>
                                     {campaign.description.toString()}
                                 </span>
-                                <span style={{ marginBottom: "2px", fontSize: "12px" }}>
+                                <div className="flex items-center justify-between gap text-sm">
+                                <p>
                                     Target Amount: {campaign.targetAmount?.toString() || "N/A"} SOL
-                                </span>
-                                <span style={{ marginBottom: "2px", fontSize: "12px" }}>
+                                </p>
+                                <p>
                                     Amount Donated: {campaign.amountDonated?.toString() || "N/A"} SOL
-                                </span>
-                                <span style={{ marginBottom: "20px", fontSize: "12px" }}>
+                                </p>
+                                </div>
+                                <span>
                                     Amount Withdrawn: {campaign.amountWithdrawn?.toString() || "N/A"} SOL
                                 </span>
                                 
