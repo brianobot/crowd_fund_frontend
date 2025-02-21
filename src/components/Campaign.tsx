@@ -315,7 +315,7 @@ export const Campaign: FC = () => {
             </div>
             <hr />
             <h2 className="text-center text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mt-10 mb-8">Active Campaigns</h2>
-            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {
                     campaigns.map((campaign) => {
                         const isUpdateAuthority = ourWallet.publicKey?.toString() === campaign.updateAuthority.toString();
@@ -338,7 +338,7 @@ export const Campaign: FC = () => {
                                 </span>
                                 <div className="flex items-center justify-between gap-10 text-[12px] mb-6">
                                 <p>
-                                    Target : {campaign.targetAmount?.toString() || "N/A"} SOL
+                                    Target : <span className="font-semibold"> {campaign.targetAmount?.toString() || "N/A"} SOL </span>
                                 </p>
                                 <p>
                                     Raised: {campaign.amountDonated?.toString() || "N/A"} SOL
@@ -369,7 +369,7 @@ export const Campaign: FC = () => {
                                             className="group btn animate-pulse"
                                             style={{
                                                 flex: "3",
-                                                padding: "10px",
+                                                padding: "8px",
                                                 borderRadius: "5px",
                                                 border: "none",
                                                 color: "#fff",
