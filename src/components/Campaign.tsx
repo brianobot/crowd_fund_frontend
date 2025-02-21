@@ -44,7 +44,7 @@ export const Campaign: FC = () => {
                 campaignDescr, 
                 new BN(campaignTargetAmount)
             )
-                .accounts({
+                .accountsPartial({
                     updateAuthority: anchorProvider.publicKey
                 }).rpc()
             
@@ -315,6 +315,17 @@ export const Campaign: FC = () => {
             </div>
             <hr />
             <h2 className="text-center text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mt-10 mb-8">Active Campaigns</h2>
+            
+            <input type="text" name="search" placeholder="Search Campaigns ..." id="" className="mb-6"  style={{
+                padding: "10px",
+                flex: "7",
+                borderRadius: "5px",
+                border: "1px solid #ccc",
+                width: "100%",
+                color: "black",
+                }}
+            />
+            
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {
                     campaigns.map((campaign) => {
@@ -336,17 +347,17 @@ export const Campaign: FC = () => {
                                 <span className='mb-4 text-left text-sm'>
                                     {campaign.description.toString()}
                                 </span>
+
+                                <ProgressBar currentAmount={ campaign.amountDonated } targetAmount={ campaign.targetAmount } />
+
                                 <div className="flex items-center justify-between gap-10 text-[12px] mb-6">
                                 <p>
-                                    Target : <span className="font-semibold"> {campaign.targetAmount?.toString() || "N/A"} SOL </span>
+                                    Target: <span className="font-semibold"> {campaign.targetAmount?.toString() || "N/A"} </span>
                                 </p>
                                 <p>
-                                    Raised:  <span className="font-semibold">{campaign.amountDonated?.toString() || "N/A"} SOL</span>
+                                    Raised: <span className="font-semibold"> {campaign.amountDonated?.toString() || "N/A"} </span>
                                 </p>
                                 </div>
-                              
-                                
-                                <ProgressBar currentAmount={ campaign.amountDonated } targetAmount={ campaign.targetAmount } />
 
                                 <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", gap: "10px", marginTop: "10px"}}>
                                     <div style={{ display: "flex", gap: "5px" }}>
