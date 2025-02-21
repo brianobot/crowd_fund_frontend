@@ -341,7 +341,7 @@ export const Campaign: FC = () => {
                                     Target : <span className="font-semibold"> {campaign.targetAmount?.toString() || "N/A"} SOL </span>
                                 </p>
                                 <p>
-                                    Raised: {campaign.amountDonated?.toString() || "N/A"} SOL
+                                    Raised:  <span className="font-semibold">{campaign.amountDonated?.toString() || "N/A"} SOL</span>
                                 </p>
                                 </div>
                               
