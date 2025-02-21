@@ -315,42 +315,36 @@ export const Campaign: FC = () => {
             </div>
             <hr />
             <h2 className="text-center text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mt-10 mb-8">Active Campaigns</h2>
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-around" }}>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {
                     campaigns.map((campaign) => {
                         const isUpdateAuthority = ourWallet.publicKey?.toString() === campaign.updateAuthority.toString();
 
                         return (
                             <div
-                                className="flex flex-col"
+                                className="flex flex-col border border border-[#ccc] rounded-md p-2 max-w-xs text-sm"
                                 key={ campaign.pubkey }
-                                style={{
-                                    border: "1px solid #ccc",
-                                    borderRadius: "10px",
-                                    padding: "20px",
+                                style={{  
                                     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                                    maxWidth: "300px",
-                                    margin: "20px 10px",
-                                    backgroundColor: "##0000FF",
-                                    flex: "1 1 30%", // This will make each item take up 30% of the container width
-                                    
+                                    flex: "1 1 30%", 
                                 }}
                                 >
                                 <h1 style={{ marginBottom: "10px" }}>
                                     <b><u> {campaign.name.toString()} </u></b>
                                 </h1>
-                                <span style={{ marginBottom: "10px", fontSize: "12px" }}>
+                                
+                                <span className='mb-4 text-left text-sm'>
                                     {campaign.description.toString()}
                                 </span>
-                                <span style={{ marginBottom: "2px", fontSize: "12px" }}>
-                                    Target Amount: {campaign.targetAmount?.toString() || "N/A"} SOL
-                                </span>
-                                <span style={{ marginBottom: "2px", fontSize: "12px" }}>
-                                    Amount Donated: {campaign.amountDonated?.toString() || "N/A"} SOL
-                                </span>
-                                <span style={{ marginBottom: "20px", fontSize: "12px" }}>
-                                    Amount Withdrawn: {campaign.amountWithdrawn?.toString() || "N/A"} SOL
-                                </span>
+                                <div className="flex items-center justify-between gap-10 text-[12px] mb-6">
+                                <p>
+                                    Target : <span className="font-semibold"> {campaign.targetAmount?.toString() || "N/A"} SOL </span>
+                                </p>
+                                <p>
+                                    Raised:  <span className="font-semibold">{campaign.amountDonated?.toString() || "N/A"} SOL</span>
+                                </p>
+                                </div>
+                              
                                 
                                 <ProgressBar currentAmount={ campaign.amountDonated } targetAmount={ campaign.targetAmount } />
 
@@ -375,7 +369,7 @@ export const Campaign: FC = () => {
                                             className="group btn animate-pulse"
                                             style={{
                                                 flex: "3",
-                                                padding: "10px",
+                                                padding: "8px",
                                                 borderRadius: "5px",
                                                 border: "none",
                                                 color: "#fff",
