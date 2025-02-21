@@ -315,37 +315,33 @@ export const Campaign: FC = () => {
             </div>
             <hr />
             <h2 className="text-center text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mt-10 mb-8">Active Campaigns</h2>
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-around" }}>
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {
                     campaigns.map((campaign) => {
                         const isUpdateAuthority = ourWallet.publicKey?.toString() === campaign.updateAuthority.toString();
 
                         return (
                             <div
-                                className="flex flex-col my-10 mx-8 border border border-[#ccc] rounded-md p-5 max-w-xl text-sm"
+                                className="flex flex-col border border border-[#ccc] rounded-md p-2 max-w-xs text-sm"
                                 key={ campaign.pubkey }
-                                style={{
-                                    
+                                style={{  
                                     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                                    // maxWidth: "300px",
-                                backgroundColor: "##0000FF",
-                                    flex: "1 1 30%", // This will make each item take up 30% of the container width
-                                    
+                                    flex: "1 1 30%", 
                                 }}
                                 >
                                 <h1 style={{ marginBottom: "10px" }}>
                                     <b><u> {campaign.name.toString()} </u></b>
                                 </h1>
                                 
-                                <span className='mb-4 text-justify text-sm'>
+                                <span className='mb-4 text-left text-sm'>
                                     {campaign.description.toString()}
                                 </span>
-                                <div className="flex items-center justify-between gap text-sm">
+                                <div className="flex items-center justify-between gap-10 text-[12px] mb-6">
                                 <p>
-                                    Target Amount: {campaign.targetAmount?.toString() || "N/A"} SOL
+                                    Target : {campaign.targetAmount?.toString() || "N/A"} SOL
                                 </p>
                                 <p>
-                                    Amount Donated: {campaign.amountDonated?.toString() || "N/A"} SOL
+                                    Raised: {campaign.amountDonated?.toString() || "N/A"} SOL
                                 </p>
                                 </div>
                               
